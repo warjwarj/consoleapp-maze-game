@@ -16,10 +16,15 @@ class Item:
         
     def pickup(self, wealth):
         wealth += self.item[1]
-        print(f"""
-            you picked up: { self.item_nature }
-            your wealth is now:  { wealth } \n
-        """)
+        if self.pickedup == False:
+            print(f"""
+                you interacted with: { self.item_nature }
+                your wealth is now:  { wealth } \n
+            """)
+        else: 
+            print("""
+                you have already interacted with this item.
+            """)
         self.pickedup = True
         return wealth
     

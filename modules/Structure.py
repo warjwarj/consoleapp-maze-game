@@ -57,6 +57,9 @@ class Room(Cell):
                 return passage.x, passage.y
         
         return f"""
+
+        Choose whether or not to pick up the item, and choose a passage to take.
+
         ROOM: { self.x, self.y }
 
         north_passage: { describePassage(self.north_passage) }
@@ -121,7 +124,7 @@ class Structure():
                         else:
                             grid_array[y].append(Room(y, x, dead=True))
                             if draw:
-                                grid_array[y][-1].draw(self.screen, self.struct_config["cell_size"], BLACK)
+                                grid_array[y][-1].draw(self.screen, self.struct_config["cell_size"], WHITE)
                             room = False
                     else:
                         grid_array[y].append(Passage(y, x))
@@ -146,6 +149,8 @@ class Structure():
             drawing_maze = True
 
             while drawing_maze:
+
+                self.clock.tick(self.drawspeed)
 
                 # define cell we finished on last time
                 startroom = cell_stack[-1]
@@ -259,8 +264,10 @@ class Structure():
 
             """)
 
-    def __init__(self, screen, struct_config, item_config, clock):
+    def __init__(self, screen, struct_config, item_config, clock, drawspeed):
         self.struct_config = struct_config
         self.item_config = item_config
         self.screen = screen
         self.clock = clock
+        self.drawspeed = drawspeed
+        self.assemble()
