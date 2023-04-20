@@ -1,0 +1,23 @@
+{
+    "Structure": {
+        "comment": "height and width correspond to number of cells in the grid from which we draw the maze. cell_size not applicable. height and width need to be odd numbers",
+        "height" : 3,
+        "width": 3,
+        "cell_size": 10
+    },
+    "Item": {
+        "comment": "Treasure is good, it adds to wealth. Traps detract from wealth.",
+        "Treasure": {
+            "Gold": 100,
+            "Silver": 20,
+            "Bronze": 10,
+            "Iron": 1
+        },
+        "Trap": {
+            "Bear_Trap": -100,
+            "Spikes": -20,
+            "Bannana_Peel": -10,
+            "Magnet": -1
+        }
+    }
+}
